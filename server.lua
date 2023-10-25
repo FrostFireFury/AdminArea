@@ -1,0 +1,13 @@
+RegisterNetEvent("SetAdminBlip")
+AddEventHandler("SetAdminBlip", function(x, y, z)
+    local playerName = GetPlayerName(source)
+    TriggerClientEvent("CreateAdminBlip", -1, x, y, z)
+    TriggerClientEvent('okokNotify:Alert', -1, 'Staff Area', 'A Staff Area Has Been Set By '..playerName, 5000, 'warning', playSound)
+end)
+
+RegisterNetEvent("RemoveAdminBlip")
+AddEventHandler("RemoveAdminBlip", function()
+    local playerName = GetPlayerName(source)
+    TriggerClientEvent("RemoveAdminBlip", -1)
+    TriggerClientEvent('okokNotify:Alert', -1, 'Staff Area', 'A Staff Area Has Been Cleared By '..playerName, 5000, 'warning', playSound)
+end)
